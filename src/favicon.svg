@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>favicon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="favicon" fill="#171717">
+            <path d="M96,64 L96,384 L160,384 L160,448 L224,448 L224,512 L288,512 C288,512 288.855453,448.421875 288,448 C287.144547,447.578125 352,448 352,448 L352,384 L416,384 L416,64 L288,64 C288.855456,215.522168 288,320 288,320 L224,320 L224,64 L96,64 Z" id="Path-2-Copy"></path>
+        </g>
+    </g>
+</svg>
