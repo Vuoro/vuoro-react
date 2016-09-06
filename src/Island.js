@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { Entity, Scene } from "aframe-react";
+import { Entity } from "aframe-react";
 
+import constants from "./constants";
 import Tile from "./Tile";
 
 class Island extends Component {
   render() {
-    const width = 0.5;
-    const height = 0.2;
-    const depth = 0.7;
-
-    const spacing = 0.1;
     let islandPosition = [0,0];
 
     switch (this.props[".key"]) {
@@ -24,10 +20,10 @@ class Island extends Component {
         islandPosition = [2,0];
         break;
       case "R":
-        islandPosition = [0,-1];
+        islandPosition = [0,1];
         break;
       case "O2":
-        islandPosition = [1,-1];
+        islandPosition = [1,1];
         break;
     }
 
@@ -48,9 +44,9 @@ class Island extends Component {
         id={this.props[".key"]}
         class="Island"
         position={[
-          (islandPosition[0] * width) + (islandPosition[0] * spacing),
+          (islandPosition[0] * constants.island.width) + (islandPosition[0] * constants.island.spacing),
           0,
-          (islandPosition[1] * depth) + (islandPosition[1] * spacing),
+          (islandPosition[1] * constants.island.depth) + (islandPosition[1] * constants.island.spacing),
         ]}
       >
 

@@ -6,15 +6,26 @@ const serverMockup = {
   },
 
   tiles: {
-    "LAKE": {
+    "Lake": {
       cost: 0,
       health: 5,
-      gain: 10,
+      gain: 1,
       mods: {
         "0,1":  -1,
         "0,-1": -1,
         "1,0":  -2,
         "-1,0": -2,
+      },
+    },
+    "Forest": {
+      cost: 0,
+      health: 8,
+      gain: -1,
+      mods: {
+        "0,1":  1,
+        "0,-1": 1,
+        "1,0":  1,
+        "-1,0": 1,
       },
     },
   },

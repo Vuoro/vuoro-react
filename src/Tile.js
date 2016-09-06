@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Entity, Scene } from "aframe-react";
+import { Entity } from "aframe-react";
 import shallowCompare from "react-addons-shallow-compare";
+
+import constants from "./constants";
 
 class Tile extends Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -8,23 +10,19 @@ class Tile extends Component {
   }
 
   render() {
-    const width = 0.1;
-    const height = 0.02;
-    const depth = 0.1;
-
     return (
       <Entity
         class="Tile"
         geometry={{
           primitive: "box",
-          width: width,
-          height: height,
-          depth: depth,
+          width: constants.tile.width,
+          height: constants.tile.height,
+          depth: constants.tile.depth,
         }}
         position={[
-          this.props.x * width,
+          this.props.x * constants.tile.width,
           0,
-          this.props.y * depth,
+          -this.props.y * constants.tile.depth,
         ]}
         material={{
           color: this.props.tile ? "cyan" : "brown",

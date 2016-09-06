@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "aframe";
 import { Entity, Scene } from "aframe-react";
 
+import constants from "./constants";
 import Island from "./Island";
+import TileShop from "./TileShop";
 
 class World extends Component {
   constructor(props) {
@@ -24,9 +26,9 @@ class World extends Component {
         <Entity
           id="camera"
           camera={{
-            far: 51*1000,
-            near: 0.001,
-            fov: this.props.inVR ? 80 : 90,
+            far: constants.world.far + 1,
+            near: constants.world.near,
+            fov: this.props.inVR ? constants.world.VRFOV : constants.world.screenFOV,
             userHeight: 1.75,
           }}
           look-controls={{
@@ -48,9 +50,9 @@ class World extends Component {
           id="skybox"
           geometry={{
             primitive: "box",
-            width: 50*1000,
-            height: 50*1000,
-            depth: 50*1000,
+            width: constants.world.far * 2,
+            height: constants.world.far * 2,
+            depth: constants.world.far * 2,
           }}
           material={{
             shader: "flat",
@@ -81,10 +83,13 @@ class World extends Component {
           ]}
         />
 
+        <TileShop
+          tiles={this.props.server.tiles}
+        />
+
         <Entity
           id="islands"
-          position={[0,2,-2]}
-          rotation={[-90,0,0]}
+          position={[0,1,-2]}
         >
           {
             this.props.server.islands.map((island) =>
