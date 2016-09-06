@@ -14,12 +14,14 @@ class TileShop extends Component {
     let tiles = [];
 
     for (let name in this.props.tiles) {
-      let tile = this.props.tiles[name];
-      tile.x = 0;
-      tile.y = 0;
-      tile.key = name;
-      tile.tile = name;
-      tiles.push(tile);
+      if (this.props.tiles.hasOwnProperty(name)) {
+        let tile = this.props.tiles[name];
+        tile.x = 0;
+        tile.y = 0;
+        tile.key = name;
+        tile.tile = name;
+        tiles.push(tile);
+      }
     }
 
     return (

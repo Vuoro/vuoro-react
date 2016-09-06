@@ -30,12 +30,16 @@ class Island extends Component {
     let tiles = [];
 
     for (let x in this.props.tiles) {
-      for (let y in this.props.tiles[x]) {
-        let tile = this.props.tiles[x][y];
-        tile.x = +x;
-        tile.y = +y;
-        tile.key = x+y;
-        tiles.push(tile);
+      if (this.props.tiles.hasOwnProperty(x)) {
+        for (let y in this.props.tiles[x]) {
+          if (this.props.tiles[x].hasOwnProperty(y)) {
+            let tile = this.props.tiles[x][y];
+            tile.x = +x;
+            tile.y = +y;
+            tile.key = x+y;
+            tiles.push(tile);
+          }
+        }
       }
     }
 
