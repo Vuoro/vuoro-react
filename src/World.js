@@ -63,7 +63,7 @@ class World extends Component {
           id="ambientLight"
           light={{
             type: "ambient",
-            color: "#111",
+            color: "#222",
           }}
         />
 
@@ -75,20 +75,26 @@ class World extends Component {
             intensity: 1.5,
           }}
           position={[
-            -0.5,
-            -1,
-            0.25,
+            -0.75,
+            1,
+            0.5,
           ]}
         />
 
-        {
-          this.props.server.islands.map((island) =>
-            <Island
-              key={island[".key"]}
-              {...island}
-            />
-          )
-        }
+        <Entity
+          id="islands"
+          position={[0,2,-2]}
+          rotation={[-90,0,0]}
+        >
+          {
+            this.props.server.islands.map((island) =>
+              <Island
+                key={island[".key"]}
+                {...island}
+              />
+            )
+          }
+        </Entity>
 
       </Scene>
     );
