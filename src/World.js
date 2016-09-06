@@ -24,7 +24,7 @@ class World extends Component {
         <Entity
           id="camera"
           camera={{
-            far: 50*1000,
+            far: 51*1000,
             near: 0.001,
             fov: this.props.inVR ? 80 : 90,
             userHeight: 1.75,
@@ -45,10 +45,12 @@ class World extends Component {
         />
 
         <Entity
-          id="sky"
+          id="skybox"
           geometry={{
-            primitive: "sphere",
-            radius: 49*1000,
+            primitive: "box",
+            width: 50*1000,
+            height: 50*1000,
+            depth: 50*1000,
           }}
           material={{
             shader: "flat",
@@ -61,20 +63,23 @@ class World extends Component {
           id="ambientLight"
           light={{
             type: "ambient",
-            color: "#333",
+            color: "#111",
           }}
         />
 
-        {/* <Entity
-          geometry={{
-            primitive: "sphere",
-            radius: 2,
+        <Entity
+          id="directionalLight"
+          light={{
+            type: "directional",
+            color: "white",
+            intensity: 1.5,
           }}
-          position={[0,0,-3]}
-          material={{
-            color: "red",
-          }}
-        /> */}
+          position={[
+            -0.5,
+            -1,
+            0.25,
+          ]}
+        />
 
         {
           this.props.server.islands.map((island) =>
