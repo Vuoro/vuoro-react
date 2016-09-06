@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "aframe";
 import { Entity, Scene } from "aframe-react";
 
+import Island from "./Island";
+
 class World extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +13,9 @@ class World extends Component {
     return (
       <Scene
         id="scene"
+        stats={{
+          enabled: process.env.NODE_ENV === "development",
+        }}
         vr-mode-ui={{
           enabled: true,
         }}
@@ -22,6 +27,7 @@ class World extends Component {
             far: 50*1000,
             near: 0.001,
             fov: this.props.inVR ? 80 : 90,
+            userHeight: 1.75,
           }}
           look-controls={{
             enabled: true
@@ -59,7 +65,7 @@ class World extends Component {
           }}
         />
 
-        <Entity
+        {/* <Entity
           geometry={{
             primitive: "sphere",
             radius: 2,
@@ -68,7 +74,16 @@ class World extends Component {
           material={{
             color: "red",
           }}
-        />
+        /> */}
+
+        {
+          this.props.server.islands.map((island) =>
+            <Island
+              key={island[".key"]}
+              {...island}
+            />
+          )
+        }
 
       </Scene>
     );

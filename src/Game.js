@@ -3,6 +3,7 @@ import reactMixin from "react-mixin";
 import Firebase from "firebase";
 import ReactFire from "reactfire";
 
+import serverMockup from "./serverMockup";
 import World from "./World";
 
 class Game extends Component {
@@ -19,23 +20,24 @@ class Game extends Component {
       databaseURL: "https://vuoro-c652e.firebaseio.com",
     });
 
+
     this.state = {
       inVR: false,
       width: window.innerWidth,
       height: window.innerHeight,
-      server: null,
+      server: serverMockup,
     };
   }
 
   componentWillMount() {
-    this.bindAsObject(
-      Firebase.database().ref("server"),
-      "server",
-      function(error) {
-        console.log("Firebase subscription cancelled:")
-        console.log(error);
-      }
-    );
+    // this.bindAsObject(
+    //   Firebase.database().ref("server"),
+    //   "server",
+    //   function(error) {
+    //     console.log("Firebase subscription cancelled:")
+    //     console.log(error);
+    //   }
+    // );
   }
 
   componentDidMount() {
