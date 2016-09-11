@@ -21,7 +21,7 @@ class World extends Component {
           enabled: process.env.NODE_ENV === "development",
         }}
         vr-mode-ui={{
-          enabled: true,
+          enabled: false,
         }}
       >
 
