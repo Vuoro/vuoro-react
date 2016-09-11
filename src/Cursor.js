@@ -11,10 +11,10 @@ class Cursor extends Component {
   render() {
     return (
       <Entity
-        raycaster={{
-          far: constants.interactionRange,
-          objects: ".interactable",
-        }}
+        // raycaster={{
+        //   far: constants.interactionRange,
+        //   objects: ".interactable",
+        // }}
         cursor={{
           fuse: false,
         }}
