@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Entity } from "aframe-react";
+import { Entity, Animation } from "aframe-react";
 
 import constants from "./constants";
 
@@ -8,15 +8,13 @@ class Cursor extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    console.log(this.cursor);
-  }
-
   render() {
     return (
       <Entity
-        ref="cursor"
-        id="cursor"
+        raycaster={{
+          far: constants.interactionRange,
+          objects: ".interactable",
+        }}
         cursor={{
           fuse: false,
         }}
@@ -32,11 +30,26 @@ class Cursor extends Component {
           shader: "flat",
           color: constants.cursor.color,
         }}
-        // raycaster={{
-        //   far: constants.interactionRange,
-        //   // objects: ".interactable",
-        // }}
       >
+
+        <Animation
+          begin="mousedown"
+          dur={constants.time.short(6)}
+          easing="ease-out"
+          attribute="scale"
+          fill="both"
+          to={[constants.cursor.hoverScale, constants.cursor.hoverScale, constants.cursor.hoverScale]}
+        />
+
+        <Animation
+          begin="mouseup"
+          dur={constants.time.short(3)}
+          easing="ease-out"
+          attribute="scale"
+          fill="both"
+          from={[constants.cursor.hoverScale, constants.cursor.hoverScale, constants.cursor.hoverScale]}
+          to="1 1 1"
+        />
 
         {this.props.children}
 

@@ -18,12 +18,12 @@ const constants = {
   },
 
   cursor: {
-    thickness: 0.002,
+    thickness: 0.0015,
     size: 0.01,
     distance: 0.5,
     segments: 36,
     color: "white",
-    hoverScale: 1.5,
+    hoverScale: 0.618,
     hoverColor: "red",
   },
 
