@@ -5,6 +5,8 @@ import { Entity, Scene } from "aframe-react";
 import constants from "./constants";
 import Island from "./Island";
 import TileShop from "./TileShop";
+import Camera from "./Camera";
+import Cursor from "./Cursor";
 
 class World extends Component {
   constructor(props) {
@@ -23,28 +25,9 @@ class World extends Component {
         }}
       >
 
-        <Entity
-          id="camera"
-          camera={{
-            far: constants.world.far + 1,
-            near: constants.world.near,
-            fov: this.props.inVR ? constants.world.VRFOV : constants.world.screenFOV,
-            userHeight: 1.75,
-          }}
-          look-controls={{
-            enabled: true
-          }}
-          wasd-controls={{
-            enabled: true
-          }}
-          universal-controls={{
-            movementEnabled: this.props.devMode,
-            // movementSpeed:        5,
-            // movementEasing:       15,
-            // movementAcceleration: 80,
-            // rotationSensitivity:  0.05,
-          }}
-        />
+        <Camera {...this.props}>
+          <Cursor {...this.props}/>
+        </Camera>
 
         <Entity
           id="skybox"

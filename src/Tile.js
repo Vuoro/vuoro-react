@@ -12,7 +12,7 @@ class Tile extends Component {
   render() {
     return (
       <Entity
-        class="Tile"
+        className="tile interactable"
         geometry={{
           primitive: "box",
           width: constants.tile.width,
