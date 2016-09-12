@@ -17,12 +17,20 @@ class Tile extends Component {
     return shallowCompare(this, nextProps, nextState);
   }
 
-  onFocus() {
-    this.setState({focused: true});
+  onStateAdded(event) {
+    switch (event.detail.state) {
+      case "cursor-hovered":
+      default:
+        this.setState({focused: true});
+    }
   }
 
-  onBlur() {
-    this.setState({focused: false});
+  onStateRemoved(event) {
+    switch (event.detail.state) {
+      case "cursor-hovered":
+      default:
+        this.setState({focused: false});
+    }
   }
 
   render() {
@@ -69,8 +77,8 @@ class Tile extends Component {
           color: this.props.tile ? "cyan" : "brown",
           flatShading: true,
         }}
-        onMouseEnter={this.onFocus.bind(this)}
-        onMouseLeave={this.onBlur.bind(this)}
+        onStateAdded={this.onStateAdded.bind(this)}
+        onStateRemoved={this.onStateRemoved.bind(this)}
       >
 
         {reticle}

@@ -11,6 +11,18 @@ import Cursor from "./Cursor";
 class World extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      somethingIsHovered: false,
+    };
+  }
+
+  onHover() {
+    this.setState({somethingIsHovered: true})
+  }
+
+  onBlur() {
+    this.setState({somethingIsHovered: false})
   }
 
   render() {
@@ -26,7 +38,11 @@ class World extends Component {
       >
 
         <Camera {...this.props}>
-          <Cursor {...this.props}/>
+          <Cursor
+            onHover={this.onHover.bind(this)}
+            onBlur={this.onBlur.bind(this)}
+            {...this.state}
+          />
         </Camera>
 
         <Entity

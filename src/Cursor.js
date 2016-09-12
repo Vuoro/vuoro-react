@@ -6,14 +6,6 @@ import shallowCompare from "react-addons-shallow-compare";
 import constants from "./constants";
 
 class Cursor extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hovering: false,
-    }
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
@@ -22,7 +14,7 @@ class Cursor extends Component {
     switch (event.detail.state) {
       case "cursor-hovering":
       default:
-        this.setState({hovering: true})
+        this.props.onHover();
     }
   }
 
@@ -30,13 +22,13 @@ class Cursor extends Component {
     switch (event.detail.state) {
       case "cursor-hovering":
       default:
-        this.setState({hovering: false})
+        this.props.onBlur();
     }
   }
 
   render() {
-    const scale = this.state.hovering ? 0 : 1;
-    const springPreset = this.state.hovering ? constants.spring.tight : constants.spring.loose;
+    const scale = this.props.somethingIsHovered ? 0 : 1;
+    const springPreset = this.props.somethingIsHovered ? constants.spring.tight : constants.spring.loose;
 
     return (
       <Entity
