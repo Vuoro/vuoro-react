@@ -9,6 +9,17 @@ const constants = {
     },
   },
 
+  spring: {
+    tight: {
+      stiffness: 170,
+      damping: 19,
+    },
+    loose: {
+      stiffness: 90,
+      damping: 19,
+    },
+  },
+
   world: {
     VRFOV: 80,
     screenFOV: 90,
@@ -22,9 +33,7 @@ const constants = {
     size: 0.01,
     distance: 0.5,
     segments: 36,
-    color: "white",
-    hoverScale: 0.618,
-    hoverColor: "red",
+    color: "yellow",
   },
 
   island: {
