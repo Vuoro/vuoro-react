@@ -8,7 +8,7 @@ const serverMockup = {
   tiles: {
     "Lake": {
       cost: 0,
-      health: 5,
+      initialHealth: 5,
       gain: 1,
       mods: {
         "0,1":  -1,
@@ -19,7 +19,7 @@ const serverMockup = {
     },
     "Forest": {
       cost: 0,
-      health: 8,
+      initialHealth: 8,
       gain: -1,
       mods: {
         "0,1":  1,
@@ -36,7 +36,7 @@ const serverMockup = {
       tiles: {
         "0": {
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -58,11 +58,11 @@ const serverMockup = {
         },
         "1": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -84,11 +84,11 @@ const serverMockup = {
         },
         "2": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
@@ -98,11 +98,11 @@ const serverMockup = {
         },
         "3": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -124,7 +124,7 @@ const serverMockup = {
         },
         "4": {
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -151,11 +151,11 @@ const serverMockup = {
       tiles: {
         "0": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -177,15 +177,15 @@ const serverMockup = {
         },
         "1": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -207,25 +207,25 @@ const serverMockup = {
         },
         "2": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
         },
         "3": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -247,16 +247,16 @@ const serverMockup = {
         },
         "4": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
-            tile: null,
-            health: null,
+            tile: "Forest",
+            health: 2,
           },
           "4": {
             tile: null,
@@ -278,11 +278,11 @@ const serverMockup = {
       tiles: {
         "0": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -300,15 +300,15 @@ const serverMockup = {
         },
         "1": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -330,11 +330,11 @@ const serverMockup = {
         },
         "2": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "6": {
@@ -344,15 +344,15 @@ const serverMockup = {
         },
         "3": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -374,11 +374,11 @@ const serverMockup = {
         },
         "4": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -528,11 +528,11 @@ const serverMockup = {
       tiles: {
         "0": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -550,15 +550,15 @@ const serverMockup = {
         },
         "1": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -580,11 +580,11 @@ const serverMockup = {
         },
         "2": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "6": {
@@ -594,15 +594,15 @@ const serverMockup = {
         },
         "3": {
           "0": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {
@@ -624,11 +624,11 @@ const serverMockup = {
         },
         "4": {
           "1": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "2": {
-            tile: "LAKE",
+            tile: "Lake",
             health: 5,
           },
           "3": {

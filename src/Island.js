@@ -38,6 +38,7 @@ class Island extends Component {
             tile.y = +y;
             tile.key = this.props[".key"]+ x + y ;
             tile.id = tile.key;
+            tile.stats = this.props.tileStats[tile.tile];
             tiles.push(tile);
           }
         }
@@ -59,7 +60,6 @@ class Island extends Component {
           tiles.map((tile)=>
             <Tile
               {...tile}
-              setHoveredTile={this.props.setHoveredTile}
             />
           )
         }

@@ -27,19 +27,9 @@ class Tile extends Component {
     return shallowCompare(this, nextProps, nextState);
   }
 
-  onStateAdded(event) {
-    switch (event.detail.state) {
-      case "cursor-hovered":
-      default:
-        // this.setHovered();
     }
   }
 
-  onStateRemoved(event) {
-    switch (event.detail.state) {
-      case "cursor-hovered":
-      default:
-        // this.unsetHovered();
     }
   }
 
@@ -62,8 +52,6 @@ class Tile extends Component {
           color: this.props.tile ? "cyan" : "brown",
           flatShading: true,
         }}
-        onStateAdded={this.onStateAdded.bind(this)}
-        onStateRemoved={this.onStateRemoved.bind(this)}
       >
 
       </Entity>

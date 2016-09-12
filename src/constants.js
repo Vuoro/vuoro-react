@@ -43,6 +43,18 @@ const constants = {
     width: 0.1,
     height: 0.02,
     depth: 0.1,
+    gridSize: 3,
+    getGrid: function() {
+      let tileLocations = [];
+      for (let x = 0; x < 3; x++) {
+        for (let y = 0; y < 3; y++) {
+          tileLocations.push(
+            [x, y]
+          );
+        }
+      }
+      return tileLocations;
+    },
   },
 
 };

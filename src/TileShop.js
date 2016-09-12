@@ -15,7 +15,8 @@ class TileShop extends Component {
 
     for (let name in this.props.tiles) {
       if (this.props.tiles.hasOwnProperty(name)) {
-        let tile = this.props.tiles[name];
+        let tile = {};
+        tile.stats = this.props.tiles[name];
         tile.x = 0;
         tile.y = 0;
         tile.key = name;
@@ -43,7 +44,6 @@ class TileShop extends Component {
             >
               <Tile
                 {...tile}
-                setHoveredTile={this.props.setHoveredTile}
               />
             </Entity>
           )
