@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "aframe";
 import { Entity, Scene } from "aframe-react";
+import { Motion, spring } from 'react-motion';
 
 import constants from "./constants";
 import Island from "./Island";
@@ -13,19 +14,44 @@ class World extends Component {
     super(props);
 
     this.state = {
-      somethingIsHovered: false,
+      hoveredTile: null,
     };
   }
 
-  onHover() {
-    this.setState({somethingIsHovered: true})
-  }
-
-  onBlur() {
-    this.setState({somethingIsHovered: false})
-  }
+  // setHoveredTile(id) {
+  //   this.setState({hoveredTile: id})
+  // }
 
   render() {
+    let reticle;
+    if (this.state.hoveredTile) {
+      const reticleRadius = constants.tile.width / 1.618;
+      const reticleThickness = this.state.hoveredTile ? constants.tile.height : 0;
+
+      reticle = (
+        <Motion style={{reticleThickness: spring(reticleThickness, constants.spring.tight)}}>
+          {motion => (
+            <Entity
+              id="reticle"
+              geometry={{
+                primitive: "ring",
+                radiusInner: reticleRadius,
+                radiusOuter: reticleRadius + motion.reticleThickness,
+                segmentsTheta: 4,
+                segmentsPhi: 1,
+              }}
+              rotation={[-90, 0, 45]}
+              position={[0, constants.tile.height * 0.5 + 0.01, 0]}
+              material={{
+                shader: "flat",
+                color: constants.cursor.color,
+              }}
+            />
+          )}
+        </Motion>
+      );
+    }
+
     return (
       <Scene
         id="scene"
@@ -38,11 +64,7 @@ class World extends Component {
       >
 
         <Camera {...this.props}>
-          <Cursor
-            onHover={this.onHover.bind(this)}
-            onBlur={this.onBlur.bind(this)}
-            {...this.state}
-          />
+          <Cursor/>
         </Camera>
 
         <Entity
@@ -84,6 +106,7 @@ class World extends Component {
 
         <TileShop
           tiles={this.props.server.tiles}
+          // setHoveredTile={this.setHoveredTile.bind(this)}
         />
 
         <Entity
@@ -95,10 +118,13 @@ class World extends Component {
               <Island
                 key={island[".key"]}
                 {...island}
+                // setHoveredTile={this.setHoveredTile.bind(this)}
               />
             )
           }
         </Entity>
+
+        {reticle}
 
       </Scene>
     );

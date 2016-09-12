@@ -19,6 +19,7 @@ class TileShop extends Component {
         tile.x = 0;
         tile.y = 0;
         tile.key = name;
+        tile.id = tile.key;
         tile.tile = name;
         tiles.push(tile);
       }
@@ -32,7 +33,7 @@ class TileShop extends Component {
         {
           tiles.map((tile, index)=>
             <Entity
-              key={"shopItem-"+tile.tile}
+              key={tile.key}
               class="shopItem"
               position={[
                 index * constants.tile.width * 1.5,
@@ -40,7 +41,10 @@ class TileShop extends Component {
                 0,
               ]}
             >
-              <Tile {...tile} />
+              <Tile
+                {...tile}
+                setHoveredTile={this.props.setHoveredTile}
+              />
             </Entity>
           )
         }

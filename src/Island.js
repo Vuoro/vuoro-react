@@ -36,7 +36,8 @@ class Island extends Component {
             let tile = this.props.tiles[x][y];
             tile.x = +x;
             tile.y = +y;
-            tile.key = x+y;
+            tile.key = this.props[".key"]+ x + y ;
+            tile.id = tile.key;
             tiles.push(tile);
           }
         }
@@ -56,7 +57,10 @@ class Island extends Component {
 
         {
           tiles.map((tile)=>
-            <Tile {...tile} />
+            <Tile
+              {...tile}
+              setHoveredTile={this.props.setHoveredTile}
+            />
           )
         }
 

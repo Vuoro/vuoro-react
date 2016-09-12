@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Entity } from "aframe-react";
+import { Motion, spring } from 'react-motion';
+// import throttle from "lodash.throttle";
 import shallowCompare from "react-addons-shallow-compare";
 
 import constants from "./constants";
@@ -8,9 +10,17 @@ class Tile extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      focused: false,
-    };
+    // this.state = {
+    //   isHovered: false,
+    // }
+
+    // this.setHovered = throttle(function () {
+    //   this.props.setHoveredTile(this.props.id);
+    // }, 100);
+    //
+    // this.unsetHovered = throttle(function () {
+    //   this.props.setHoveredTile(null);
+    // }, 100);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -21,7 +31,7 @@ class Tile extends Component {
     switch (event.detail.state) {
       case "cursor-hovered":
       default:
-        this.setState({focused: true});
+        // this.setHovered();
     }
   }
 
@@ -29,36 +39,11 @@ class Tile extends Component {
     switch (event.detail.state) {
       case "cursor-hovered":
       default:
-        this.setState({focused: false});
+        // this.unsetHovered();
     }
   }
 
   render() {
-    let reticle;
-
-    if (this.state.focused) {
-      reticle = (
-        <Entity
-          className="reticle"
-          geometry={{
-            primitive: "box",
-            width: constants.tile.width,
-            height: constants.tile.height,
-            depth: constants.tile.depth,
-          }}
-          position={[
-            0,
-            constants.tile.height * 0.5,
-            0,
-          ]}
-          material={{
-            color: "yellow",
-            flatShading: true,
-          }}
-        />
-      );
-    }
-
     return (
       <Entity
         className="tile interactable"
@@ -80,8 +65,6 @@ class Tile extends Component {
         onStateAdded={this.onStateAdded.bind(this)}
         onStateRemoved={this.onStateRemoved.bind(this)}
       >
-
-        {reticle}
 
       </Entity>
     );
