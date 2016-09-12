@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Entity } from "aframe-react";
+import extras from "aframe-extras";
+extras.controls.registerAll();
 
 import constants from "./constants";
 
@@ -18,18 +20,13 @@ class Camera extends Component {
           fov: this.props.inVR ? constants.world.VRFOV : constants.world.screenFOV,
           userHeight: 1.75,
         }}
-        look-controls={{
-          enabled: true
-        }}
-        wasd-controls={{
-          enabled: true
-        }}
         universal-controls={{
-          movementEnabled: this.props.devMode,
-          // movementSpeed:        5,
-          // movementEasing:       15,
-          // movementAcceleration: 80,
+          movementEnabled: this.props.inVR === false,
+          movementSpeed:        20,
+          movementEasing:       25,
+          movementAcceleration: 20,
           // rotationSensitivity:  0.05,
+          // fly: true,
         }}
       >
 

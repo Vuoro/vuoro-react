@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "aframe": "^0.3.1",
+    "aframe-extras": "^2.5.0",
     "aframe-react": "^2.0.0",
     "firebase": "^3.3.2",
-    "jonikorpi-base-files": "^3.8.1",
+    "jonikorpi-base-files": "^4.0.0",
     "react": "^15.3.1",
     "react-addons-shallow-compare": "^15.3.1",
     "react-dom": "^15.3.1",
